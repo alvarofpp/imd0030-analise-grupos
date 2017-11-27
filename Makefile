@@ -24,7 +24,7 @@ $(BIN): $(OBJS) $(APPOBJ)
 
 $(APPOBJ): $(APP)
 	$(CC) -c -o $@ $< $(CFLAGS)
-    
+
 ${OBJDIR}/%.o: $(SRCDIR)/%.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
@@ -45,6 +45,3 @@ init:
 	@mkdir -p $(OBJDIR)/
 	@mkdir -p $(BINDIR)/
 	@mkdir -p $(APPDIR)/
-
-
-
