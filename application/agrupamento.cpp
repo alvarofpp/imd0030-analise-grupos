@@ -1,10 +1,12 @@
 #include <fstream>
-using std::ifstream;
 
 #include "dados.h"
 #include "conjuntos.h"
 
+using std::ifstream;
+
 int main(int argc, char const *argv[]) {
+
 	Conjuntos conjunto;
 
 	if(argc != 2) {

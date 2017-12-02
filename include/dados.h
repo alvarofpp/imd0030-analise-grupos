@@ -27,21 +27,26 @@ using std::istringstream;
 #include <utility>
 using std::pair;
 
-class Dados {
-private:
-	vector<double> informacoes;
-public:
-	Dados() = default;
-	Dados(const vector< pair<double, double> > &);
-	~Dados();
+#include <cmath>
 
-	friend istream & operator>>(istream &, Dados &);
-	friend ostream & operator<<(ostream &, const Dados &);
-	size_t tamanho() const;
-//	void redimensionar(size_t tamanho);
-	bool operator== (const Dados &) const;
-	double & operator[](int indice);
-	const double & operator[](int indice) const; 
+class Dados {
+
+	private:
+		vector<double> informacoes;
+	public:
+		Dados() = default;
+		Dados(const vector< pair<double, double> > &);
+		~Dados();
+
+		friend istream & operator>>(istream &, Dados &);
+		friend ostream & operator<<(ostream &, const Dados &);
+		size_t tamanho() const;
+	//	void redimensionar(size_t tamanho);
+		bool operator== (const Dados &) const;
+		double & operator[](int indice);
+		const double & operator[](int indice) const;
+
+		double DistEuclidiana( const Dados & ) const; 
 
 };
 
