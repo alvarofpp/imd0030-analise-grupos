@@ -1,3 +1,11 @@
+/**
+ *	@file		dados.h	
+ *	@brief	Definição das funções auxiliares
+ *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
+ *	@since	23.11.2017
+ *	@data		01.12.2017
+ */
+
 #ifndef DADOS_H
 #define DADOS_H
 
@@ -16,17 +24,42 @@ using std::string;
 #include <sstream>
 using std::istringstream;
 
+#include <utility>
+using std::pair;
+
 class Dados {
 private:
 	vector<double> informacoes;
 public:
-	Dados();
+	Dados() = default;
+	Dados(const vector< pair<double, double> > &);
 	~Dados();
 
 	friend istream & operator>>(istream &, Dados &);
 	friend ostream & operator<<(ostream &, const Dados &);
 	size_t tamanho() const;
-	
+//	void redimensionar(size_t tamanho);
+	bool operator== (const Dados &) const;
+	double & operator[](int indice);
+	const double & operator[](int indice) const; 
+
 };
+
+namespace std {
+
+	template <>
+	struct hash<Dados> {
+		size_t operator()(const Dados & d) const {
+			if (!d.tamanho()) {
+				return EXIT_FAILURE;
+			}
+			size_t h = hash<double>()(d[0]);
+			for (size_t i = 1; i < d.tamanho(); i++)
+					h ^= hash<double>()(d[i]); 
+			return h;
+		}
+	};
+
+}
 
 #endif

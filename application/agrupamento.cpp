@@ -2,21 +2,26 @@
 using std::ifstream;
 
 #include "dados.h"
+#include "conjuntos.h"
 
 int main(int argc, char const *argv[]) {
+	Conjuntos conjunto;
 
-	Dados dados;
+	if(argc != 2) {
+		cout << "Insira arquivo .csv de entrada como argumento de linha de comando!" << endl;
+		return EXIT_FAILURE;
+	}
 
-	ifstream in("input/iris.csv");
-	cout << "--- Lendo arquivo de entrada ---" << endl;
+	string file = argv[1];
+	ifstream in(file);
 	if(!in.is_open()) {
 		cout << "Arquivo de entrada não pode ser aberto!" << endl;
 	} else {
-		in >> dados;
-		cout << "Arquivo lido!" << endl;
+		cout << "--- Lendo arquivo de entrada \"" << file << "\" ---" << endl;
+		in >> conjunto;
 	}
 
-	cout << dados;
+	cout << conjunto;
 	
 	return EXIT_SUCCESS;
 }
