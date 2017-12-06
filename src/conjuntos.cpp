@@ -31,3 +31,23 @@ ostream & operator<< (ostream & out, const Conjuntos & conjunto) {
 	}
 	return out;
 }
+
+Conjuntos Conjuntos::uniao(const Conjuntos & conjuntoA) const {
+	Conjuntos conjuntoB;
+	conjuntoB.conteudo.insert(conjuntoA.conteudo.begin(), conjuntoA.conteudo.end());
+	conjuntoB.conteudo.insert(conteudo.begin(), conteudo.end());
+	return conjuntoB;
+}
+
+bool Conjuntos::pertinencia (const Dados & dados) const {
+    return find(dados) != end();
+}
+
+Conjuntos Conjuntos::diferenca(const Conjuntos & conjuntoA) const {
+    Conjuntos conjuntoB;
+    for (auto i = begin(); i != end(); i++)
+        if (!conjuntoA.pertinencia(*i)) {
+        	conjuntoB.insert(*i); 
+        }
+    return conjuntoB;
+}

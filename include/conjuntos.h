@@ -28,6 +28,10 @@ class Conjuntos : private unordered_set<Dados> {
 
 		friend istream & operator>>(istream &, Conjuntos &);
 		friend ostream & operator<< (ostream &, const Conjuntos &);
+
+		Conjuntos uniao(const Conjuntos &) const;
+		bool pertinencia (const Dados &) const;
+		Conjuntos diferenca(const Conjuntos &) const;
 };
 
 #endif
