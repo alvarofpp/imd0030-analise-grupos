@@ -8,13 +8,26 @@
 
 #include "conjuntos.h"
 
+/*
+ * @brief Insere o elemento 
+ */
+
 void Conjuntos::inserir(vector<double> & elemento) {
 	elementos.insert(elemento);
 }
 
+/*
+ * @brief Remove o elemento 
+ */
+
 void Conjuntos::remover(vector<double> & elemento) {
 	elementos.erase(elemento);
 }
+
+/*
+ * @brief Faz a união dos conjuntos
+ * @details Insere no conjuntoB os elementos do conjuntoA 
+ */
 
 Conjuntos Conjuntos::uniao(const Conjuntos & conjuntoA) const {
 	Conjuntos conjuntoB;
@@ -23,10 +36,18 @@ Conjuntos Conjuntos::uniao(const Conjuntos & conjuntoA) const {
 	return conjuntoB;
 }
 
+/*
+ * @brief Verifica se determinado elemento está no conjunto 
+ */
+
 bool Conjuntos::pertinencia (const vector<double> & elemento) const {
     return elementos.find(elemento) != elementos.end();
 }
 
+/*
+ * @brief Verifica os elementos diferentes entre o conbjuntoA e conjuntoB 
+ * @details Elimina essas diferenças do conjuntoB 
+ */
 Conjuntos Conjuntos::diferenca(const Conjuntos & conjuntoA) const {
     Conjuntos conjuntoB;
     conjuntoB.elementos.insert(elementos.begin(), elementos.end());
@@ -36,6 +57,11 @@ Conjuntos Conjuntos::diferenca(const Conjuntos & conjuntoA) const {
     return conjuntoB;
 }
 
+/*
+ * @brief Verifica os elementos em comum dos conjuntos
+ * @details 
+ */
+
 Conjuntos Conjuntos::intersecao(const Conjuntos & conjuntoA) const {
     Conjuntos conjuntoB;
     for (auto i = conjuntoA.elementos.begin(); i != conjuntoA.elementos.end(); i++)
@@ -44,6 +70,11 @@ Conjuntos Conjuntos::intersecao(const Conjuntos & conjuntoA) const {
         }
     return conjuntoB;
 }
+
+/*
+ * @brief  
+ * @details 
+ */
 
 bool Conjuntos::comparar(const Conjuntos & conjunto) {
   for(auto i = conjunto.elementos.begin(); i != conjunto.elementos.end(); i++) {

@@ -14,17 +14,11 @@ using std::unordered_set;
 
 #include "dados.h"
 
-class Conjuntos /* : private unordered_set<Dados>*/ {
+class Conjuntos {
 	
 	private:
 		unordered_set< vector<double> > elementos;
 	public:
-		/*		using unordered_set<Dados>::insert;
-		using unordered_set<Dados>::erase;
-		using unordered_set<Dados>::find;
-		using unordered_set<Dados>::empty;
-		using unordered_set<Dados>::begin;
-		using unordered_set<Dados>::end;*/
 
 
 		bool pertinencia (const vector<double> &) const;
