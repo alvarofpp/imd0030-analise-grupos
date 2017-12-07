@@ -14,9 +14,9 @@ int main(int argc, char const *argv[]) {
 
 	Dataframe dataframe;
 	Conjuntos A, B, C;
-  vector<double> I1 = {1.0,2.2,3.5,4.1,5.9};
-  vector<double> I2 = {1.3,2.3,3.3,42.1,5.9};
-  vector<double> I3 = {4.3,7.3,8.3,24.1,9.9};
+  vector<double> in1 = {0.8,5.2,3.5,7.5,5.9};
+  vector<double> in2 = {1.3,2.3,3.3,42.1,5.9};
+  vector<double> in3 = {6.3,7.3,7.5,24.1,9.9};
 
 	string arquivo = "input/a.csv";
 	dataframe.abrirArquivo(arquivo, dataframe);
@@ -24,138 +24,77 @@ int main(int argc, char const *argv[]) {
 
 	dataframe.persistencia("output", dataframe);
 
-	cout << "Testando a função de inserção no conjunto..." << endl;
-	A.inserir(I1);
-  B.inserir(I1);
+	cout << "----  Testando Inserção no conjunto ----" << endl;
+	A.inserir(in1);
+  B.inserir(in1);
   assert(A.comparar(B) == true);
-  A.inserir(I2);
-  B.inserir(I3);
+  A.inserir(in2);
+  B.inserir(in3);
   assert(A.comparar(B) == false);
-  A.inserir(I3);
-  B.inserir(I2);
+  A.inserir(in3);
+  B.inserir(in2);
   assert(A.comparar(B) == true);
-  cout << "Testando a função de remoção no conjunto..." << endl;
-  A.remover(I1);
-  B.remover(I1);
+  
+  cout << "---  Testando Remoção no conjunto ---" << endl;
+  A.remover(in1);
+  B.remover(in1);
   assert(A.comparar(B) == true);
-  A.remover(I2);
-  B.remover(I3);
+  A.remover(in2);
+  B.remover(in3);
   assert(A.comparar(B) == false);
-  A.remover(I3);
-  B.remover(I2);
+  A.remover(in3);
+  B.remover(in2);
   assert(A.comparar(B) == true);
-	cout << "Testando a função de pertinência no conjunto..." << endl;
-  A.remover(I2);
-  A.remover(I3);
-  A.inserir(I1);
-  assert(A.pertinencia(I1) == true);
-  assert(A.pertinencia(I2) == false);
-  assert(A.pertinencia(I3) == false);
-  A.inserir(I2);
-  assert(A.pertinencia(I1) == true);
-  assert(A.pertinencia(I2) == true);
-  assert(A.pertinencia(I3) == false);
-  A.inserir(I3);
-  assert(A.pertinencia(I1) == true);
-  assert(A.pertinencia(I2) == true);
-  assert(A.pertinencia(I3) == true);
-  cout << "Testando a função de união de conjuntos..." << endl;
-  A.remover(I1);
-  A.remover(I2);
-  A.remover(I3);
-  A.inserir(I1);
-  A.inserir(I2);
-  B.inserir(I1);
-  B.inserir(I3);
-  C.inserir(I1);
-  C.inserir(I2);
-  C.inserir(I3);
+
+	cout << "---  Testando Pertinência no conjunto ---" << endl;
+  A.remover(in2);
+  A.remover(in3);
+  A.inserir(in1);
+  assert(A.pertinencia(in1) == true);
+  assert(A.pertinencia(in2) == false);
+  assert(A.pertinencia(in3) == false);
+  A.inserir(in2);
+  assert(A.pertinencia(in1) == true);
+  assert(A.pertinencia(in2) == true);
+  assert(A.pertinencia(in3) == false);
+  A.inserir(in3);
+  assert(A.pertinencia(in1) == true);
+  assert(A.pertinencia(in2) == true);
+  assert(A.pertinencia(in3) == true);
+
+  cout << "---  Testando União de conjuntos ---" << endl;
+  A.remover(in1);
+  A.remover(in2);
+  A.remover(in3);
+  A.inserir(in1);
+  A.inserir(in2);
+  B.inserir(in1);
+  B.inserir(in3);
+  C.inserir(in1);
+  C.inserir(in2);
+  C.inserir(in3);
   Conjuntos D = A.uniao(B);
   assert(D.comparar(C) == true);
-  D.remover(I3);
+  D.remover(in3);
   assert(D.comparar(C) == false);
-  C.remover(I3);
+  C.remover(in3);
   assert(D.comparar(C) == true);
-  cout << "Testando a função de intersecção de conjuntos..." << endl;
-  C.remover(I2);
-  C.inserir(I3);
-  Conjuntos F = A.intercessao(B);
-  //Conferir daqui para baixo
-  assert(F.comparar(C) == true);
-  cout << "Testando a função de diferença de conjuntos..." << endl;
-  A.inserir(I3);
-  B.remover(I1);
+
+  cout << "---  Testando Diferença de conjuntos ---" << endl;
+  A.inserir(in3);
+  B.remover(in1);
   Conjuntos E = A.diferenca(B);
   assert(E.comparar(C) == true);
-  E.remover(I1);
+  E.remover(in1);
   assert(E.comparar(C) == false);
-  C.remover(I1);
+  C.remover(in1);
   assert(E.comparar(C) == true);
 
+  cout << "---  Testando Intersecção de conjuntos ---" << endl;
+  C.remover(in2);
+  C.inserir(in3);
+  Conjuntos F = A.intersecao(B);
+  assert(F.comparar(C) == true);
 
-	/*string file;
-	ifstream in;
-	Conjuntos conjuntoA;
-	Conjuntos conjuntoB;
-
-
-	file = "input/a.csv";
-	in.open(file);
-	if(!in.is_open()) {
-		cout << "Arquivo de entrada não pode ser aberto!" << endl;
-	} else {
-		cout << "--- Lendo arquivo de entrada \"" << file << "\" ---" << endl;
-		in >> conjuntoA;
-	}
-	
-	cout << conjuntoA;
-	in.close();
-
-	file = "input/b.csv";
-	in.open(file);
-	if(!in.is_open()) {
-		cout << "Arquivo de entrada não pode ser aberto!" << endl;
-	} else {
-		cout << "--- Lendo arquivo de entrada \"" << file << "\" ---" << endl;
-		in >> conjuntoB;
-	}
-
-	cout << conjuntoB;
-	in.close();
-
-
-	
-	cout << "--- União dos conjuntos ---" << endl;
-	Conjuntos conjuntoC = conjuntoA.uniao(conjuntoB);
-	cout << conjuntoC;
-
-
-	Dados d = {1.4};
-	cout << "--- Pertinencia dos conjuntos ---" << endl;
-	Conjuntos conjuntoD = conjuntoC.uniao(conjuntoA);
-	cout << conjuntoD;*/
-
-
-	/*if(argc != 2) {
-		cout << "Insira arquivo .csv de entrada como argumento de linha de comando!" << endl;
-		return EXIT_FAILURE;
-	}
-
-	string file = argv[1];
-	ifstream in(file);
-	if(!in.is_open()) {
-		cout << "Arquivo de entrada não pode ser aberto!" << endl;
-	} else {
-		cout << "--- Lendo arquivo de entrada \"" << file << "\" ---" << endl;
-		in >> conjuntoA;
-	}
-
-	cout << conjuntoA;*/
-
-
-
-
-
-	
 	return EXIT_SUCCESS;
 }

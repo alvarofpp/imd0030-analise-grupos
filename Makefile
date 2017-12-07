@@ -24,7 +24,7 @@ $(BIN): $(OBJS) $(APPOBJ)
 
 $(APPOBJ): $(APP)
 	$(CC) -c -o $@ $< $(CFLAGS)
-
+    
 ${OBJDIR}/%.o: $(SRCDIR)/%.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
@@ -38,7 +38,6 @@ $(TESTDIR)/t_%: $(TESTDIR)/t_%.cpp $(OBJS)
 clean:
 	rm -f $(BIN) $(OBJS) $(APPOBJ)
 	rm -f $(TESTS)
-
 
 # Inicialização 
 init: 	

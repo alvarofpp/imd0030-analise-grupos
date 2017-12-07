@@ -29,16 +29,16 @@ bool Conjuntos::pertinencia (const vector<double> & elemento) const {
 
 Conjuntos Conjuntos::diferenca(const Conjuntos & conjuntoA) const {
     Conjuntos conjuntoB;
-    for (auto i = conjuntoB.elementos.begin(); i != conjuntoB.elementos.end(); i++)
-        if (!conjuntoA.pertinencia(*i)) {
-        	conjuntoB.elementos.erase(*i); 
-        }
+    conjuntoB.elementos.insert(elementos.begin(), elementos.end());
+    for (auto i = conjuntoA.elementos.begin(); i != conjuntoA.elementos.end(); i++) {
+        conjuntoB.elementos.erase(*i); 
+    }
     return conjuntoB;
 }
 
-Conjuntos Conjuntos::intercessao(const Conjuntos & conjuntoA) const {
+Conjuntos Conjuntos::intersecao(const Conjuntos & conjuntoA) const {
     Conjuntos conjuntoB;
-    for (auto i = conjuntoB.elementos.begin(); i != conjuntoB.elementos.end(); i++)
+    for (auto i = conjuntoA.elementos.begin(); i != conjuntoA.elementos.end(); i++)
         if (conjuntoA.pertinencia(*i)) {
         	conjuntoB.elementos.insert(*i); 
         }

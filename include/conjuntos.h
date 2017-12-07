@@ -32,7 +32,7 @@ class Conjuntos /* : private unordered_set<Dados>*/ {
 		void remover(vector<double> &);
 		Conjuntos uniao(const Conjuntos &) const;
 		Conjuntos diferenca(const Conjuntos &) const;
-		Conjuntos intercessao(const Conjuntos &) const;
+		Conjuntos intersecao(const Conjuntos &) const;
 		bool comparar(const Conjuntos &);
 
 };
