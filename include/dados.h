@@ -47,8 +47,6 @@ class Dados {
 		double & operator[](int indice);
 		const double & operator[](int indice) const;
 
-		double DistEuclidiana( const Dados & ) const; 
-
 };
 
 namespace std {

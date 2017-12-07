@@ -86,16 +86,3 @@ double & Dados::operator[](int indice) {
 const double & Dados::operator[](int indice) const {
 	return informacoes[indice];
 }
-
-
-double Dados::DistEuclidiana( const Dados & dsd_) const{
-
-	double Distancia = 0.0;
-
-	for( size_t i = 0; i < tamanho(); i++ ){
-		Distancia += pow( dsd_[i] - informacoes[i], 2);
-	}
-
-	return sqrt(Distancia);
-
-} 
