@@ -2,6 +2,7 @@
  *	@file		dados.h	
  *	@brief	Definição das funções auxiliares
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
+ *      @author Anne Moraes (ilarymoraes@hotmail.com) 
  *	@since	23.11.2017
  *	@data		01.12.2017
  */
@@ -27,12 +28,15 @@ using std::istringstream;
 #include <utility>
 using std::pair;
 
+#include <set>
+using std::set;
+
 #include <cmath>
 
 class Dados {
 
 	private:
-		vector<double> informacoes;
+		set< vector<double> > informacoes;
 	public:
 		Dados() = default;
 		Dados(const vector< pair<double, double> > &);
@@ -45,25 +49,30 @@ class Dados {
 		bool operator== (const Dados &) const;
 		double & operator[](int indice);
 		const double & operator[](int indice) const;
-
-		double DistEuclidiana( const Dados & ) const; 
+		bool pertinencia (const vector<double> &) const;
+		void inserir(vector<double> &);
+		void remover(vector<double> &);
+		Dados uniao(const Conjuntos &) const;
+		Dados diferenca(const Conjuntos &) const;
+		Dados intersecao(const Conjuntos &) const;
+		bool comparar(const Conjuntos &);
 
 };
 
-namespace std {
-
-	template <>
-	struct hash< vector<double> > {
-		size_t operator()(const vector<double> & d) const {
-			if (!d.size()) {
-				return EXIT_FAILURE;
-			}
-			size_t h = hash<double>()(d[0]);
-			for (size_t i = 1; i < d.size(); i++)
-					h ^= hash<double>()(d[i]); 
-			return h;
-		}
-	};
-}
-
+/**namespace std {
+*
+*	template <>
+*	struct set< vector<double> > {
+*		size_t operator()(const vector<double> & d) const {
+*			if (!d.size()) {
+*				return EXIT_FAILURE;
+*			}
+*			size_t h = set<double>()(d[0]);
+*			for (size_t i = 1; i < d.size(); i++)
+*					h ^= hash<double>()(d[i]); 
+*			return h;
+*		}
+*	};
+*}
+*/
 #endif

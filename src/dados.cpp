@@ -2,6 +2,7 @@
  *	@file		dados.cpp	
  *	@brief	Implementãção das funções auxiliares
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
+ *      @author Anne Moraes (ilarymoraes@hotmail.com) 
  *	@since	23.11.2017
  *	@data		01.12.2017
  */
@@ -86,15 +87,79 @@ const double & Dados::operator[](int indice) const {
 	return informacoes[indice];
 }
 
+/*
+ * @brief Insere o elemento 
+ */
 
-double Dados::DistEuclidiana( const Dados & dsd_) const{
+void Dados::inserir(vector<double> & elemento) {
+	informacoes.insert(elemento);
+}
 
-	double Distancia = 0.0;
+/*
+ * @brief Remove o elemento 
+ */
 
-	for( size_t i = 0; i < tamanho(); i++ ){
-		Distancia += pow( dsd_[i] - informacoes[i], 2);
-	}
+void Dados::remover(vector<double> & elemento) {
+	informacoes.erase(elemento);
+}
 
-	return sqrt(Distancia);
+/*
+ * @brief Faz a união dos conjuntos
+ * @details Insere no conjuntoB os elementos do conjuntoA 
+ */
 
-} 
+Dados Dados::uniao(const Dados & conjuntoA) const {
+	Dados conjuntoB;
+	conjuntoB.informacoes.insert(conjuntoA.elementos.begin(), conjuntoA.elementos.end());
+	conjuntoB.informacoes.insert(elementos.begin(), elementos.end());
+	return conjuntoB;
+}
+
+/*
+ * @brief Verifica se determinado elemento está no conjunto 
+ */
+
+bool Dados::pertinencia (const vector<double> & elemento) const {
+    return informacoes.find(elemento) != elementos.end();
+}
+
+/*
+ * @brief Verifica os elementos diferentes entre o conbjuntoA e conjuntoB 
+ * @details Elimina essas diferenças do conjuntoB 
+ */
+Dados Dados::diferenca(const Dados & conjuntoA) const {
+    Dados conjuntoB;
+    conjuntoB.informacoes.insert(informacoes.begin(), informacoes.end());
+    for (auto i = conjuntoA.informacoes.begin(); i != conjuntoA.informacoes.end(); i++) {
+        conjuntoB.informacoes.erase(*i); 
+    }
+    return conjuntoB;
+}
+
+/*
+ * @brief Verifica os elementos em comum dos conjuntos
+ * @details 
+ */
+
+Dados Dados::intersecao(const Dados & conjuntoA) const {
+    Dados conjuntoB;
+    for (auto i = conjuntoA.informacoes.begin(); i != conjuntoA.informacoes.end(); i++)
+        if (conjuntoA.pertinencia(*i)) {
+        	conjuntoB.informacoes.insert(*i); 
+        }
+    return conjuntoB;
+}
+
+/*
+ * @brief  
+ * @details 
+ */
+
+bool Dados::comparar(const Dados & conjunto) {
+  for(auto i = conjunto.informacoes.begin(); i != conjunto.informacoes.end(); i++) {
+    if (informacoes.find(*i) == informacoes.end()) {
+    	return false;
+    }
+  }
+  return true;
+}

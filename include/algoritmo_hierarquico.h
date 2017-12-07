@@ -14,6 +14,7 @@ namespace clt
 		private:
 			size_t mSize;
 			vector<double> mData;
+			size_t mDataCols;
 			vector< vector<double> > mDistance;
 		public:
 			/*

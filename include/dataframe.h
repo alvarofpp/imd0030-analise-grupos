@@ -2,6 +2,7 @@
  *  @file   dataframe.h 
  *  @brief  Definição do dataframe
  *  @author Jessiely Oliveira (jessiely@imd.ufrn.br)
+ *  @author Anne Moraes (ilarymoraes@hotmail.com) 
  *  @since  05.12.2017
  *  @data   07.12.2017
  */
@@ -27,6 +28,7 @@ using std::istringstream;
 #include <fstream>
 using std::ifstream;
 using std::ofstream;
+
 
 class Dataframe {
 private:
