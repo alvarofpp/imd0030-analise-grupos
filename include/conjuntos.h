@@ -17,25 +17,23 @@ using std::unordered_set;
 class Conjuntos /* : private unordered_set<Dados>*/ {
 	
 	private:
-		unordered_set<Dados> conteudo;
+		unordered_set< vector<double> > elementos;
 	public:
-/*		using unordered_set<Dados>::insert;
+		/*		using unordered_set<Dados>::insert;
 		using unordered_set<Dados>::erase;
 		using unordered_set<Dados>::find;
 		using unordered_set<Dados>::empty;
 		using unordered_set<Dados>::begin;
 		using unordered_set<Dados>::end;*/
 
-		//friend istream & operator>>(istream &, Conjuntos &);
-		//friend ostream & operator<< (ostream &, const Conjuntos &);
 
-		bool pertinencia (const Dados &) const;
-		void inserir(Dados &);
-		void remover(Dados &);
+		bool pertinencia (const vector<double> &) const;
+		void inserir(vector<double> &);
+		void remover(vector<double> &);
 		Conjuntos uniao(const Conjuntos &) const;
 		Conjuntos diferenca(const Conjuntos &) const;
 		Conjuntos intercessao(const Conjuntos &) const;
-
+		bool comparar(const Conjuntos &);
 
 };
 

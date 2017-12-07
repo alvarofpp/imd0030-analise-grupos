@@ -53,18 +53,17 @@ class Dados {
 namespace std {
 
 	template <>
-	struct hash<Dados> {
-		size_t operator()(const Dados & d) const {
-			if (!d.tamanho()) {
+	struct hash< vector<double> > {
+		size_t operator()(const vector<double> & d) const {
+			if (!d.size()) {
 				return EXIT_FAILURE;
 			}
 			size_t h = hash<double>()(d[0]);
-			for (size_t i = 1; i < d.tamanho(); i++)
+			for (size_t i = 1; i < d.size(); i++)
 					h ^= hash<double>()(d[i]); 
 			return h;
 		}
 	};
-
 }
 
 #endif

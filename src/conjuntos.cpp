@@ -8,63 +8,48 @@
 
 #include "conjuntos.h"
 
-/*
- * @brief	Sobrecarga do operador de inserção
- * @details	Realiza a leitura do arquivo .csv
- 
-istream & operator>>(istream & in, Conjuntos & conjunto) {
-	while(!in.eof()) {
-		Dados dados;
-		in >> dados;
-		conjunto.conteudo.insert(dados);
-	}
-	return in;
-}*/
-
-/*
- * @brief	Sobrecarga do operador de extração
- * @details	Realiza a escrita dos dados do arquivo .csv
- 
-ostream & operator<< (ostream & out, const Conjuntos & conjunto) {
-	for(auto i = conjunto.conteudo.begin(); i != conjunto.conteudo.end(); i++) {
-		out << *i;
-	}
-	return out;
-}*/
-
-void Conjuntos::inserir(Dados & elemento) {
-	conteudo.insert(elemento);
+void Conjuntos::inserir(vector<double> & elemento) {
+	elementos.insert(elemento);
 }
 
-void Conjuntos::remover(Dados & elemento) {
-	conteudo.erase(elemento);
+void Conjuntos::remover(vector<double> & elemento) {
+	elementos.erase(elemento);
 }
 
 Conjuntos Conjuntos::uniao(const Conjuntos & conjuntoA) const {
 	Conjuntos conjuntoB;
-	conjuntoB.conteudo.insert(conjuntoA.conteudo.begin(), conjuntoA.conteudo.end());
-	conjuntoB.conteudo.insert(conteudo.begin(), conteudo.end());
+	conjuntoB.elementos.insert(conjuntoA.elementos.begin(), conjuntoA.elementos.end());
+	conjuntoB.elementos.insert(elementos.begin(), elementos.end());
 	return conjuntoB;
 }
 
-bool Conjuntos::pertinencia (const Dados & elemento) const {
-    return conteudo.find(elemento) != conteudo.end();
+bool Conjuntos::pertinencia (const vector<double> & elemento) const {
+    return elementos.find(elemento) != elementos.end();
 }
 
 Conjuntos Conjuntos::diferenca(const Conjuntos & conjuntoA) const {
     Conjuntos conjuntoB;
-    for (auto i = conjuntoB.conteudo.begin(); i != conjuntoB.conteudo.end(); i++)
+    for (auto i = conjuntoB.elementos.begin(); i != conjuntoB.elementos.end(); i++)
         if (!conjuntoA.pertinencia(*i)) {
-        	conjuntoB.conteudo.erase(*i); 
+        	conjuntoB.elementos.erase(*i); 
         }
     return conjuntoB;
 }
 
 Conjuntos Conjuntos::intercessao(const Conjuntos & conjuntoA) const {
     Conjuntos conjuntoB;
-    for (auto i = conjuntoB.conteudo.begin(); i != conjuntoB.conteudo.end(); i++)
+    for (auto i = conjuntoB.elementos.begin(); i != conjuntoB.elementos.end(); i++)
         if (conjuntoA.pertinencia(*i)) {
-        	conjuntoB.conteudo.insert(*i); 
+        	conjuntoB.elementos.insert(*i); 
         }
     return conjuntoB;
+}
+
+bool Conjuntos::comparar(const Conjuntos & conjunto) {
+  for(auto i = conjunto.elementos.begin(); i != conjunto.elementos.end(); i++) {
+    if (elementos.find(*i) == elementos.end()) {
+    	return false;
+    }
+  }
+  return true;
 }
