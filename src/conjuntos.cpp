@@ -2,6 +2,7 @@
  *	@file		conjuntos.cpp	
  *	@brief	Implementação das funções relacionadas ao conjunto
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
+ *      @author Anne Moraes (ilarymoraes@hotmail.com) 
  *	@since	23.11.2017
  *	@data		07.12.2017
  */
