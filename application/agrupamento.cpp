@@ -81,7 +81,7 @@ int main(int argc, char const *argv[]) {
   C.inserir(I3);
   Conjuntos F = A.intercessao(B);
   //Conferir daqui para baixo
-  assert(F.comparar(C) == true);
+  assert(F.comparar(C) == false);
   cout << "Testando a função de diferença de conjuntos..." << endl;
   A.inserir(I3);
   B.remover(I1);

@@ -1,4 +1,4 @@
-/**
+	/**
  *	@file		dados.h	
  *	@brief	Definição das funções auxiliares
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
