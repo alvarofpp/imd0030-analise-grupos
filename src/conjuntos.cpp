@@ -16,7 +16,7 @@ istream & operator>>(istream & in, Conjuntos & conjunto) {
 	while(!in.eof()) {
 		Dados dados;
 		in >> dados;
-		conjunto.insert(dados);
+		conjunto.conteudo.insert(dados);
 	}
 	return in;
 }
@@ -26,10 +26,18 @@ istream & operator>>(istream & in, Conjuntos & conjunto) {
  * @details	Realiza a escrita dos dados do arquivo .csv
  */
 ostream & operator<< (ostream & out, const Conjuntos & conjunto) {
-	for(auto i = conjunto.begin(); i != conjunto.end(); i++) {
+	for(auto i = conjunto.conteudo.begin(); i != conjunto.conteudo.end(); i++) {
 		out << *i;
 	}
 	return out;
+}
+
+void Conjuntos::inserir(Dados & elemento) {
+	conteudo.insert(elemento);
+}
+
+void Conjuntos::remover(Dados & elemento) {
+	conteudo.erase(elemento);
 }
 
 Conjuntos Conjuntos::uniao(const Conjuntos & conjuntoA) const {
@@ -39,15 +47,24 @@ Conjuntos Conjuntos::uniao(const Conjuntos & conjuntoA) const {
 	return conjuntoB;
 }
 
-bool Conjuntos::pertinencia (const Dados & dados) const {
-    return find(dados) != end();
+bool Conjuntos::pertinencia (const Dados & elemento) const {
+    return conteudo.find(elemento) != conteudo.end();
 }
 
 Conjuntos Conjuntos::diferenca(const Conjuntos & conjuntoA) const {
     Conjuntos conjuntoB;
-    for (auto i = begin(); i != end(); i++)
+    for (auto i = conjuntoB.conteudo.begin(); i != conjuntoB.conteudo.end(); i++)
         if (!conjuntoA.pertinencia(*i)) {
-        	conjuntoB.insert(*i); 
+        	conjuntoB.conteudo.erase(*i); 
+        }
+    return conjuntoB;
+}
+
+Conjuntos Conjuntos::intercessao(const Conjuntos & conjuntoA) const {
+    Conjuntos conjuntoB;
+    for (auto i = conjuntoB.conteudo.begin(); i != conjuntoB.conteudo.end(); i++)
+        if (conjuntoA.pertinencia(*i)) {
+        	conjuntoB.conteudo.insert(*i); 
         }
     return conjuntoB;
 }
