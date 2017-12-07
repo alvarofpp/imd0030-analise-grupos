@@ -3,6 +3,7 @@
  *	@brief	Definição das funções auxiliares
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
  *      @author Anne Moraes (ilarymoraes@hotmail.com) 
+ *	@author	Isaac Kennedy (isaac_kennedy@hotmail.com)
  *	@since	23.11.2017
  *	@data		01.12.2017
  */
@@ -56,6 +57,8 @@ class Dados {
 		Dados diferenca(const Conjuntos &) const;
 		Dados intersecao(const Conjuntos &) const;
 		bool comparar(const Conjuntos &);
+		set<int>::iterator begin();
+		set<int>::iterator end();
 
 };
 

@@ -4,13 +4,32 @@
 * @func
 *  Esse construct cria o objeto da classe 'AlgoritmoHierarquico' a partir de um vector<double>.
 */
-clt::AlgoritmoHierarquico::AlgoritmoHierarquico( vector<double> & vetor ) {
-	// Tamanho o vetor usado para alimentar
-	mSize = vetor.size();
-	// Guarda os dados realizando cash
-	mData.reserve( mSize );
-	for (auto it = vetor.begin(); it < vetor.end(); it++)
-		mData.push_back( *it );
+clt::AlgoritmoHierarquico::AlgoritmoHierarquico( Dados & data ) {
+	this->dataSet = data;
+	// Tamanho do vetor usado para alimentar
+	mSize = dataSet.tamanho();
+	//Gera o vetor de coordenadas euclidianas unidimensionais
+	mData = calculate_euclidian_vector();
 	// Cria a matriz triangular inferior de distância entre os pontos
 	distances_matrix();
+}
+
+/*
+* @func
+*  Função responsável por iterar sobre o dataset e gerar um vetor de coordenadas euclidianas, simulando um dataset unidimensional
+*/
+vector<double> clt::AlgoritmoHierarquico::calculate_euclidian_vector() {
+	vector<double> vec = new vector<double>();
+	vec.resize(dataSet.tamanho);
+	int pos = 0;
+	for (auto it = dataSet.begin(); it != dataSet.end(); it++) {
+		size_t dimensions = (*it).size();
+		int sum = 0;
+		for (int i = 0; i < dimensions; i++) {
+			sum += (*it)[i];
+		}
+		vec[pos] = sqrt(sum);
+	}
+	
+	return vec;
 }
