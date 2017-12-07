@@ -3,7 +3,7 @@
  *	@brief	Definição das funções auxiliares
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
  *      @author Anne Moraes (ilarymoraes@hotmail.com) 
- *	@author	Isaac Kennedy (isaac_kennedy@hotmail.com)
+ 
  *	@since	23.11.2017
  *	@data		01.12.2017
  */
