@@ -3,16 +3,64 @@
 #include <iostream>
 using std::cin;
 
-#include "dados.h"
-#include "conjuntos.h"
+#include "dataframe.h"
 
 using std::ifstream;
 
 int main(int argc, char const *argv[]) {
 
-	vector <float> I1 = {1.0,2.2,3.5,4.1,5.9};
-  vector <float> I2 = {1.3,2.3,3.3,42.1,5.9};
-	Conjuntos conjuntoA, conjuntoB;
+	Dataframe dataframe;
+
+	string arquivo = "input/a.csv";
+	dataframe.abrirArquivo(arquivo, dataframe);
+	cout << dataframe;
+
+	dataframe.persistencia("output", dataframe);
+
+	
+
+	/*string file;
+	ifstream in;
+	Conjuntos conjuntoA;
+	Conjuntos conjuntoB;
+
+
+	file = "input/a.csv";
+	in.open(file);
+	if(!in.is_open()) {
+		cout << "Arquivo de entrada não pode ser aberto!" << endl;
+	} else {
+		cout << "--- Lendo arquivo de entrada \"" << file << "\" ---" << endl;
+		in >> conjuntoA;
+	}
+	
+	cout << conjuntoA;
+	in.close();
+
+	file = "input/b.csv";
+	in.open(file);
+	if(!in.is_open()) {
+		cout << "Arquivo de entrada não pode ser aberto!" << endl;
+	} else {
+		cout << "--- Lendo arquivo de entrada \"" << file << "\" ---" << endl;
+		in >> conjuntoB;
+	}
+
+	cout << conjuntoB;
+	in.close();
+
+
+	
+	cout << "--- União dos conjuntos ---" << endl;
+	Conjuntos conjuntoC = conjuntoA.uniao(conjuntoB);
+	cout << conjuntoC;
+
+
+	Dados d = {1.4};
+	cout << "--- Pertinencia dos conjuntos ---" << endl;
+	Conjuntos conjuntoD = conjuntoC.uniao(conjuntoA);
+	cout << conjuntoD;*/
+
 
 	/*if(argc != 2) {
 		cout << "Insira arquivo .csv de entrada como argumento de linha de comando!" << endl;

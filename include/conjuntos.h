@@ -3,7 +3,7 @@
  *	@brief	Definição das funções relacionadas ao conjunto
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
  *	@since	23.11.2017
- *	@data		01.12.2017
+ *	@data		07.12.2017
  */
 
 #ifndef CONJUNTOS_H
@@ -26,8 +26,8 @@ class Conjuntos /* : private unordered_set<Dados>*/ {
 		using unordered_set<Dados>::begin;
 		using unordered_set<Dados>::end;*/
 
-		friend istream & operator>>(istream &, Conjuntos &);
-		friend ostream & operator<< (ostream &, const Conjuntos &);
+		//friend istream & operator>>(istream &, Conjuntos &);
+		//friend ostream & operator<< (ostream &, const Conjuntos &);
 
 		bool pertinencia (const Dados &) const;
 		void inserir(Dados &);
