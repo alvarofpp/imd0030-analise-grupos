@@ -80,14 +80,6 @@ void Dataframe::persistencia(const string & nomeArquivoSaida, const Dataframe & 
 	cout << "Arquivo de saída gerado: " << nomeArquivoSaida << ".csv" << endl;
 }
 
-Dados Dataframe::geraDados(Dataframe dataset){
-	Dados newDados;
-	for (vector<vector<double>>::iterator i = dataset.elementos.end(); i < dataset.elementos.end(); i++){
-			newDados.inserir(*i);
-	}
-
-	return newDados;
-}
 
 size_t Dataframe::tamanho() const {
 	return elementos.size();

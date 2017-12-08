@@ -6,17 +6,16 @@ using std::cin;
 #include <cassert>
 
 #include "dataframe.h"
-#include "conjuntos.h"
 
 using std::ifstream;
 
 int main(int argc, char const *argv[]) {
 
-	Dataframe dataframe;
+	/**Dataframe dataframe;
 	Conjuntos A, B, C;
-  vector<double> in1 = {0.8,5.2,3.5,7.5,5.9};
-  vector<double> in2 = {1.3,2.3,3.3,42.1,5.9};
-  vector<double> in3 = {6.3,7.3,7.5,24.1,9.9};
+    vector<double> in1 = {0.8,5.2,3.5,7.5,5.9};
+    vector<double> in2 = {1.3,2.3,3.3,42.1,5.9};
+    vector<double> in3 = {6.3,7.3,7.5,24.1,9.9};
 
 	string arquivo = "input/a.csv";
 	dataframe.abrirArquivo(arquivo, dataframe);
@@ -96,5 +95,5 @@ int main(int argc, char const *argv[]) {
   Conjuntos F = A.intersecao(B);
   assert(F.comparar(C) == true);
 
-	return EXIT_SUCCESS;
+	return EXIT_SUCCESS;**/
 }

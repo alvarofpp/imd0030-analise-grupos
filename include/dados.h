@@ -36,26 +36,27 @@ using std::set;
 
 #include "dataframe.h"
 
+
 class Dados {
 
 	private:
 		set< vector<double> > informacoes;
 	public:
 		Dados() = default;
-		Dados(const vector< pair<double, double> > &);
+		Dados(Dataframe & dataframe);
 		~Dados();
 
-		friend istream & operator>>(istream &, Dados &);
-		friend ostream & operator<<(ostream &, const Dados &);
+	//	friend istream & operator>>(istream &, Dados &);
+	//	friend ostream & operator<<(ostream &, const Dados &);
 		size_t tamanho() const;
 	//	void redimensionar(size_t tamanho);
-		bool operator== (const Dados &) const;
-		double & operator[](int indice);
-		const double & operator[](int indice) const;
+	//	bool operator== (const Dados &) const;
+	//	double & operator[](int indice);
+	//	const double & operator[](int indice) const;
 		bool pertinencia (const vector<double> &) const;
 		void inserir(vector<double> &);
 		void remover(vector<double> &);
-		Dados uniao(const Dados & conjuntoA) const;
+		Dados uniao(Dados & conjuntoA) const;
 		Dados diferenca(const Dados & conjuntoA) const;
 		Dados intersecao(const Dados & conjuntoA) const;
 		bool comparar(const Dados & conjunto);

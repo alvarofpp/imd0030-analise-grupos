@@ -34,22 +34,22 @@ using std::istringstream;
 using std::ifstream;
 using std::ofstream;
 
-#include "dados.h"
-
 class Dataframe {
 private:
-    vector< vector<double> > elementos;
     char separador = ',';
     bool status;
 public:
+  vector< vector<double> > elementos;
   friend istream & operator>>(istream &, Dataframe &);
   friend ostream & operator<<(ostream &, const Dataframe &);
   void abrirArquivo(string &, Dataframe &);
   void ler (istream &, Dataframe &, const char &) const;
   void imprimir(ostream &, const Dataframe &, const char &) const;
   void persistencia(const string &, const Dataframe &) const;
-  Dados geraDados(Dataframe dataset);
-  size_t tamanho() const; 
+  //Dados geraDados(Dataframe dataset);
+  size_t tamanho() const;
+  vector< vector<double> >::iterator begin();
+  vector< vector<double> >::iterator end();
 };
 
 #endif

@@ -15,7 +15,7 @@ Dados::~Dados() {}
 /*
  * @brief
  * @details
- */
+ *
 istream & operator>>(istream & in, Dados & dados) {
 	string linha, aux;
 	getline(in, linha);
@@ -29,7 +29,7 @@ istream & operator>>(istream & in, Dados & dados) {
 /*
  * @brief
  * @details
- */
+ *
 ostream & operator<<(ostream & out, const Dados & dados) {
 	for(size_t i = 0; i < dados.tamanho(); i++) {
 		out << dados.informacoes[i];
@@ -42,6 +42,7 @@ ostream & operator<<(ostream & out, const Dados & dados) {
 	out << endl;
 	return out;
 }
+*/
 
 /*
  * @brief Retorna o tamanho do objeto da classe Dados
@@ -57,7 +58,7 @@ size_t Dados::tamanho() const {
 /*
  * @brief 
  * @details
- */
+ *
 bool Dados::operator== (const Dados & dados) const {
 	if(informacoes.size() != dados.informacoes.size()) {
 		return EXIT_FAILURE;
@@ -70,23 +71,23 @@ bool Dados::operator== (const Dados & dados) const {
 	}
 	return false;
 }
-
+*/
 /*
  * @brief Sobrecarga de operador de acesso
  * @param Indíce do elemento
  * @details Acessa um elemento por meio de um índice
  */
-double & Dados::operator[](int indice) {
-	return informacoes[indice];
-}
+//double & Dados::operator[](int indice) {
+//	return informacoes[indice];
+//}
 
 /*
  * @brief
  * @details
  */
-const double & Dados::operator[](int indice) const {
-	return informacoes[indice];
-}
+//const double & Dados::operator[](int indice) const {
+//	return informacoes[indice];
+//}
 
 /*
  * @brief Insere o elemento 
@@ -109,10 +110,10 @@ void Dados::remover(vector<double> & elemento) {
  * @details Insere no conjuntoB os elementos do conjuntoA 
  */
 
-Dados Dados::uniao(const Dados & conjuntoA) const {
+Dados Dados::uniao(Dados & conjuntoA) const {
 	Dados conjuntoB;
-	conjuntoB.informacoes.insert(conjuntoA.elementos.begin(), conjuntoA.elementos.end());
-	conjuntoB.informacoes.insert(elementos.begin(), elementos.end());
+	conjuntoB.informacoes.insert(conjuntoA.informacoes.begin(), conjuntoA.informacoes.end());
+	conjuntoB.informacoes.insert(informacoes.begin(), informacoes.end());
 	return conjuntoB;
 }
 
@@ -121,7 +122,7 @@ Dados Dados::uniao(const Dados & conjuntoA) const {
  */
 
 bool Dados::pertinencia (const vector<double> & elemento) const {
-    return informacoes.find(elemento) != elementos.end();
+    return informacoes.find(elemento) != informacoes.end();
 }
 
 /*
@@ -173,17 +174,25 @@ void Dados::setInformacoes(set<vector<double>> m_informacoes){
 	informacoes = m_informacoes;
 }*/
 
+Dados::Dados(Dataframe & dataframe) {
+	
+	for (vector< vector<double> >::iterator i = dataframe.elementos.end(); i != dataframe.elementos.end(); i++){
+			this->inserir(*i);
+	}
+
+}
+
 Dataframe Dados::geraDataframe(Dados dado){
 	Dataframe data; 
-	for (set<vector<double>>::iterator it = dado.informacoes.begin(); it < dado.informacoes.end(); it++){
-		data.push_back(*it);
+	for (set< vector<double> >::iterator it = dado.informacoes.begin(); it != dado.informacoes.end(); it++){
+		data.elementos.push_back(*it);
 	}
 	return data;
 }
-set<int>::iterator Dados::begin() {
+set< vector<double> >::iterator Dados::begin() {
 	return informacoes.begin();
 }
 
-set<int>::iterator Dados::end() {
+set< vector<double> >::iterator Dados::end() {
 	return informacoes.end();
 }
