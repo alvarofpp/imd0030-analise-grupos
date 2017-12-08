@@ -9,6 +9,8 @@ using std::size_t;
 
 #include <cmath>
 
+#include "dados.h"
+
 namespace clt
 {
 	class AlgoritmoHierarquico
@@ -45,7 +47,7 @@ namespace clt
 			// Encontrar a menor distância na matriz de distâncias
 			void find_shorter_distance( size_t& r, size_t& c );
 			//Calcula a emulação unidimensional da matriz de dados
-			vector<bool> calculate_euclidian_vector();
+			vector<double> calculate_euclidian_vector();
 			/*
 			* Display
 			*/
