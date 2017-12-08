@@ -163,3 +163,19 @@ bool Dados::comparar(const Dados & conjunto) {
   }
   return true;
 }
+
+/*vector<vector<double>> Dados::getInformacoes(){
+	return informacoes;
+}
+
+void Dados::setInformacoes(set<vector<double>> m_informacoes){
+	informacoes = m_informacoes;
+}*/
+
+Dataframe Dados::geraDataframe(Dados dado){
+	Dataframe data; 
+	for (set<vector<double>>::iterator it = dado.informacoes.begin(); it < dado.informacoes.end(); it++){
+		data.push_back(*it);
+	}
+	return data;
+}

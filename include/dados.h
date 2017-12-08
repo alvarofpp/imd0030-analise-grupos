@@ -33,6 +33,8 @@ using std::set;
 
 #include <cmath>
 
+#include "dataframe.h"
+
 class Dados {
 
 	private:
@@ -52,10 +54,13 @@ class Dados {
 		bool pertinencia (const vector<double> &) const;
 		void inserir(vector<double> &);
 		void remover(vector<double> &);
-		Dados uniao(const Conjuntos &) const;
-		Dados diferenca(const Conjuntos &) const;
-		Dados intersecao(const Conjuntos &) const;
-		bool comparar(const Conjuntos &);
+		Dados uniao(const Dados & conjuntoA) const;
+		Dados diferenca(const Dados & conjuntoA) const;
+		Dados intersecao(const Dados & conjuntoA) const;
+		bool comparar(const Dados & conjunto);
+		Dataframe geraDataframe(Dados dado);
+		//set<vector<double>> getInformacoes();
+		//void setInformacoes(set<vector<double>> m_informacoes);
 
 };
 

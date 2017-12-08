@@ -13,6 +13,11 @@
 #include <vector>
 using std::vector;
 
+#include <set>
+using std::set;
+
+#include <iterator>
+
 #include <iostream>
 using std::ostream;
 using std::endl;
@@ -29,6 +34,7 @@ using std::istringstream;
 using std::ifstream;
 using std::ofstream;
 
+#include "dados.h"
 
 class Dataframe {
 private:
@@ -42,7 +48,8 @@ public:
   void ler (istream &, Dataframe &, const char &) const;
   void imprimir(ostream &, const Dataframe &, const char &) const;
   void persistencia(const string &, const Dataframe &) const;
-
+  Dados geraDados(Dataframe dataset);
+  size_t tamanho() const; 
 };
 
 #endif
