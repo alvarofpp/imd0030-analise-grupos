@@ -3,6 +3,7 @@
  *	@brief	Definição das funções auxiliares
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
  *      @author Anne Moraes (ilarymoraes@hotmail.com) 
+ 
  *	@since	23.11.2017
  *	@data		01.12.2017
  */
@@ -54,6 +55,7 @@ class Dados {
 		bool pertinencia (const vector<double> &) const;
 		void inserir(vector<double> &);
 		void remover(vector<double> &);
+<<<<<<< HEAD
 		Dados uniao(const Dados & conjuntoA) const;
 		Dados diferenca(const Dados & conjuntoA) const;
 		Dados intersecao(const Dados & conjuntoA) const;
@@ -61,6 +63,14 @@ class Dados {
 		Dataframe geraDataframe(Dados dado);
 		//set<vector<double>> getInformacoes();
 		//void setInformacoes(set<vector<double>> m_informacoes);
+=======
+		Dados uniao(const Conjuntos &) const;
+		Dados diferenca(const Conjuntos &) const;
+		Dados intersecao(const Conjuntos &) const;
+		bool comparar(const Conjuntos &);
+		set<int>::iterator begin();
+		set<int>::iterator end();
+>>>>>>> 00f79286e2ddc039839f81cf82650f59d8dd2827
 
 };
 

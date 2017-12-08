@@ -3,6 +3,7 @@
  *	@brief	Implementãção das funções auxiliares
  *	@author	Jessiely Oliveira (jessiely@imd.ufrn.br)
  *      @author Anne Moraes (ilarymoraes@hotmail.com) 
+ *	@author	Isaac Kennedy (isaac_kennedy@hotmail.com)
  *	@since	23.11.2017
  *	@data		01.12.2017
  */
@@ -164,6 +165,7 @@ bool Dados::comparar(const Dados & conjunto) {
   return true;
 }
 
+<<<<<<< HEAD
 /*vector<vector<double>> Dados::getInformacoes(){
 	return informacoes;
 }
@@ -179,3 +181,12 @@ Dataframe Dados::geraDataframe(Dados dado){
 	}
 	return data;
 }
+=======
+set<int>::iterator Dados::begin() {
+	return informacoes.begin();
+}
+
+set<int>::iterator Dados::end() {
+	return informacoes.end();
+}
+>>>>>>> 00f79286e2ddc039839f81cf82650f59d8dd2827

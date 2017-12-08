@@ -2,7 +2,8 @@
  *  @file   dataframe.cpp 
  *  @brief  Implementação do dataframe
  *  @author Jessiely Oliveira (jessiely@imd.ufrn.br)
- *  @author Anne Moraes (ilarymoraes@hotmail.com) 
+ *  @author Anne Moraes (ilarymoraes@hotmail.com)
+ *  @author Isaac Kennedy (isaac_kennedy@hotmail.com)
  *  @since  05.12.2017
  *  @data   07.12.2017
  */

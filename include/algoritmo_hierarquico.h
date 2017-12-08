@@ -7,20 +7,23 @@ using std::vector;
 #include <iostream>
 using std::size_t;
 
+#include <cmath>
+
 namespace clt
 {
 	class AlgoritmoHierarquico
 	{
 		private:
 			size_t mSize;
-			vector<double> mData;
-			size_t mDataCols;
+			vector<double> mData; 
+			vector<double> cluster_limits;
 			vector< vector<double> > mDistance;
+			Dados dataSet;
 		public:
 			/*
 			* Constructs and Destructs
 			*/
-			AlgoritmoHierarquico( vector<double> & vetor );
+			AlgoritmoHierarquico( Dados & data );
 			~AlgoritmoHierarquico() = default;
 			/*
 			* Display
@@ -41,6 +44,8 @@ namespace clt
 			void distances_matrix();
 			// Encontrar a menor distância na matriz de distâncias
 			void find_shorter_distance( size_t& r, size_t& c );
+			//Calcula a emulação unidimensional da matriz de dados
+			vector<bool> calculate_euclidian_vector();
 			/*
 			* Display
 			*/
