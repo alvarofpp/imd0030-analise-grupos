@@ -7,19 +7,19 @@
 **Professor**:  Leonardo Cesar Teonacio Bezerra
 
 **Integrantes**:
-- <a href="https://github.com/alvarofpp">Anne Ílary de Moraes Gomes</a>
+- <a href="https://github.com/annemoraes">Anne Ílary de Moraes Gomes</a>
   - Matrícula: 20150128135
   - E-mail: ilarymoraes@hotmail.com
 - <a href="https://github.com/alvarofpp">Álvaro Ferreira Pires de Paiva</a>
   - Matrícula: 2016039162
   - E-mail: alvarofepipa@gmail.com
-- <a href="https://github.com/alvarofpp">Ian Honorato Pereira</a>
+- <a href="https://github.com/IanHonorato">Ian Honorato Pereira</a>
   - Matrícula: 2015033389
   - E-mail: ian.0603@hotmail.com
-- <a href="https://github.com/alvarofpp">Isaac Kennedy Diniz Gomes</a>
+- <a href="https://github.com/isaken1">Isaac Kennedy Diniz Gomes</a>
   - Matrícula: 2016035065
   - E-mail: isaac_kennedy@hotmail.com
-- <a href="https://github.com/alvarofpp">Jessiely Oliveira Costa</a>
+- <a href="https://github.com/jessielyoliveira">Jessiely Oliveira Costa</a>
   - Matrícula: 2016038568
   - E-mail: jessiely@imd.ufrn.br
 
