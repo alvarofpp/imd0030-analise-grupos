@@ -2,9 +2,9 @@
 
 **Instituição**: Universidade Federal do Rio Grande do Norte (UFRN)
 
-**Disciplina**:  Linguagem De Programação I (IMD0030) - T04
+**Disciplina**: Linguagem De Programação I (IMD0030) - T04 - 2017.2
 
-**Professor**:  Leonardo Cesar Teonacio Bezerra
+**Professor**: [Leonardo Cesar Teonacio Bezerra](https://github.com/leobezerra)
 
 **Integrantes**:
 - <a href="https://github.com/annemoraes">Anne Ílary de Moraes Gomes</a>
